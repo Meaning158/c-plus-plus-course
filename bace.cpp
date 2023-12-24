@@ -55,23 +55,23 @@ Date readDate(const std::string& read)
     if (delimiter != '-')
     {
         std::cout << "Wrong date format: " << read << '\n';
-        throw std::exception();
+        throw std::runtime_error("");
     }
     date_is >> delimiter >> day;
     if (delimiter != '-' || date_is.fail() || !date_is.eof() || year > 9999 || month > 99 || day > 99)
     {
         std::cout << "Wrong date format: " << read << '\n';
-        throw std::exception();
+        throw std::runtime_error("");
     }
     if (month < 1 or month > 12)
     {
         std::cout << "Month value is invalid: " << month << '\n';
-        throw std::exception();
+        throw std::runtime_error("");
     }
     if (day < 1 or day > 31)
     {
         std::cout << "Day value is invalid: " << day << '\n';
-        throw std::exception();
+        throw std::runtime_error("");
     }
     return Date(year, month, day);
 }
